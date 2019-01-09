@@ -1,0 +1,30 @@
+language: node_js
+cache:
+  directories:
+    - ~/.npm
+notifications:
+  email: false
+os:
+  - linux
+  - osx
+  - windows
+node_js:
+  - '11'
+  - '10'
+before_script:
+  - npm prune
+script:
+   - npm run prepush
+jobs:
+  coverage:
+    # get the coverage metrics to coveralls
+    # (inherits the first value of the array that defines a matrix dimension - linux/node.11)
+    script:
+      - npm run coveralls-report
+  release:
+    script:
+      - npm run semantic-release
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
+

@@ -1,0 +1,10 @@
+dist/test/
+dist/**/test/
+dist/**/*test.*
+dist/test.*
+src
+coverage
+.*
+*travis.yml
+tsconfig.json
+tslint.json
